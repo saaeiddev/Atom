@@ -1,31 +1,27 @@
 # ATOM — The Structure of Matter
 
-An early, incomplete interactive educational website by Amir Saeid Dehghan. [فارسی](README_FA.md)
+Interactive educational atomic science website by Amir Saeid Dehghan. [راهنمای فارسی](README_FA.md)
 
-## Current features
+## Features
 
-- WebGL point clouds sampled from the squared real hydrogen wavefunctions for 1s, 2s, 2p-z and 3d-z². The distribution is truncated for visualization; color denotes wavefunction sign, not light. Drag to rotate and scroll to zoom. A textual fallback is shown when WebGL is unavailable.
-- A short timeline of atomic theory, with historical models labelled as such.
-- Hydrogen energy-level transitions, wavelengths, frequency and photon energy using an infinite-nuclear-mass approximation.
+- Probability-weighted 3D point clouds of real hydrogen-like 1s, 2s, 2p-z, 3d-z² and 4f-z³ wavefunctions. Rotate, zoom, pause and adjust point size. WebGL is used when available and a canvas projection otherwise.
+- An interactive periodic table of 118 recognized elements, with search, atomic data and electron configurations.
+- Eight example isotopes, a comparison of atomic-theory milestones, a historical timeline and a hydrogen transition calculator.
 
-## Current limitations
+## Scientific context and limitations
 
-This is an initial implementation, not the completed project in the brief. It does not yet include all 118 elements, an isotope laboratory, interactive historical 3D models, f orbitals, an isosurface renderer, a comparison mode, guided tour, full accessibility controls, authentic 3D model assets, a mobile performance study, or a comprehensive automated test suite. WebGL rendering was unavailable in the initial browser test. Orbital sampling and rendering need further scientific and visual validation. No performance targets are claimed.
+An orbital is not an electron trajectory or an atomic photograph. Colors encode the sign of a real wavefunction; the cloud is finite random sampling of a truncated distribution. The hydrogen transition calculator uses an infinite-nuclear-mass approximation. Values for atomic weights and electron configurations are supplied by the dataset and some are uncertain or predicted. Radioactive decay times are probabilistic.
 
-## Run locally
+This is still a partial implementation of the larger brief. Historical comparisons use conceptual symbols, not interactive 3D historical models. The table selection does not update the orbital renderer; the renderer models hydrogen-like states only. Isosurfaces, arbitrary quantum numbers, exact many-electron calculations, particle selection, full-screen and screenshot controls, guided tour, quizzes, comprehensive accessibility, verified performance benchmarks, professional 3D assets and detailed cross-browser/mobile testing are not yet implemented.
 
-Serve this directory over HTTP (rather than opening the file directly):
+## Local development
 
-```sh
-python3 -m http.server 8000
-```
+Run `npm test` for dataset checks. Run `npm start` and open http://localhost:8000. No package installation or build is needed. Google Fonts are optional and system fallbacks are provided.
 
-Open http://localhost:8000. No build or npm install is required. The fonts are retrieved from Google Fonts when network access permits; system fallbacks are provided.
+## Data and attribution
 
-## Science and references
+Element dataset adapted from [Bowserinator/Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/); data filtered to the first 118 elements and reduced to selected fields. The adapted `elements.js` remains under that license. No third-party 3D models are bundled.
 
-- [OpenStax Chemistry 2e](https://openstax.org/details/books/chemistry-2e)
-- [NIST Atomic Spectra: hydrogen](https://physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable5.htm)
-- [Chemistry LibreTexts: hydrogen atom](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Quantum_Chemistry_with_Applications_in_Spectroscopy_(Fleming)/06%3A_The_Hydrogen_Atom)
+Scientific references: [OpenStax Chemistry](https://openstax.org/details/books/chemistry-2e), [NIST Hydrogen](https://physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable1_a.htm), and [Chemistry LibreTexts: Hydrogen Atom](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Quantum_Chemistry_with_Applications_in_Spectroscopy_(Fleming)/06%3A_The_Hydrogen_Atom). Isotopic half-lives are rounded educational values.
 
-This is an educational visualization: atoms are not rendered to scale and the classical hero image is conceptual. No third-party 3D assets are included.
+The GitHub Pages workflow is included, but deployment depends on repository Pages settings and is not proof that a live site exists.
